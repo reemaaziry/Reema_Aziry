@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class homeactivity extends AppCompatActivity {
+public class exhomeactivity extends AppCompatActivity {
     EditText editTextNumber1, editTextNumber2;
     Button plus, minus;
     TextView textViewResult;
