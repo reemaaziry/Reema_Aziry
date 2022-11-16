@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         String registeredPassword = preferences.getString("password", "");
 
         if (input_mail.equals(registeredMail)&& input_password.equals(registeredPassword)){
-            Intent i_mail = new Intent(this, exhomeactivity.class);
+            Intent i_mail = new Intent(this, Homeactivity.class);
             startActivity(i_mail);
         }
         else {

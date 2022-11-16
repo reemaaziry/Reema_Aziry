@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -17,30 +18,41 @@ public class Aboutactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutactivity);
     }
+    //load option menu from an activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
     //handle options new click events
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.setting_menu:
-                Toast.makeText(Aboutactivity.this,"settings clicked",Toast.LENGTH_LONG);
+                Toast.makeText(Aboutactivity.this,"settings clicked",Toast.LENGTH_LONG).show();
                 break;
             case R.id.about_menu:
-                Toast.makeText(Aboutactivity.this,"about clicked",Toast.LENGTH_LONG);
+                Toast.makeText(Aboutactivity.this,"about clicked",Toast.LENGTH_LONG).show();
                 Intent a = new Intent(this, Aboutactivity.class);
                 startActivity(a);
                 break;
             case R.id.help_menu:
-                Toast.makeText(Aboutactivity.this,"help clicked",Toast.LENGTH_LONG);
+                Toast.makeText(Aboutactivity.this,"help clicked",Toast.LENGTH_LONG).show();
                 Intent h = new Intent(this, helpactivity.class);
                 startActivity(h);
                 break;
             case R.id.logout_menu:
-                Toast.makeText(Aboutactivity.this,"logout clicked",Toast.LENGTH_LONG);
+                Toast.makeText(Aboutactivity.this,"logout clicked",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.list_menu:{
+                Toast.makeText(Aboutactivity.this,"list clicked",Toast.LENGTH_LONG).show();
+                Intent m = new Intent(this, Listactivity.class);
+                startActivity(m);
+                break;}
         }
         return true;
     }
     //is called when the user clicks the back button
-
     @Override
     public void onBackPressed() {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);

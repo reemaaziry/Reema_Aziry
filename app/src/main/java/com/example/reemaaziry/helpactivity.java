@@ -26,16 +26,19 @@ public class helpactivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.setting_menu)
-            Toast.makeText(helpactivity.this,"settings clicked",Toast.LENGTH_LONG);
+            Toast.makeText(helpactivity.this,"settings clicked",Toast.LENGTH_LONG).show();
         if(item.getItemId()==R.id.about_menu) {
-            Toast.makeText(helpactivity.this,"about clicked",Toast.LENGTH_LONG);
+            Toast.makeText(helpactivity.this,"about clicked",Toast.LENGTH_LONG).show();
             Intent a = new Intent(this, Aboutactivity.class);
-            startActivity(a);
+            startActivity(a);}
         if(item.getItemId()==R.id.help_menu)
-                Toast.makeText(helpactivity.this,"help clicked",Toast.LENGTH_LONG);
+            Toast.makeText(helpactivity.this,"help clicked",Toast.LENGTH_LONG).show();
         if(item.getItemId()==R.id.logout_menu)
-                Toast.makeText(helpactivity.this,"logout clicked",Toast.LENGTH_LONG);
-        }
+            Toast.makeText(helpactivity.this,"logout clicked",Toast.LENGTH_LONG).show();
+        if(item.getItemId()==R.id.list_menu)
+            Toast.makeText(helpactivity.this,"list clicked",Toast.LENGTH_LONG).show();
+            Intent m = new Intent(this, Listactivity.class);
+            startActivity(m);
         return true;
     }
 }
