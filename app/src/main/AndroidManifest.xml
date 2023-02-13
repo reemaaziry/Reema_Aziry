@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.reemaaziry">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera2.full" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReemaAziry"
         tools:targetApi="31">
+        <activity
+            android:name=".CameraActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.Fullscreen"
+            />
+        <activity android:name=".CustomGalleryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".BottomNavigation"
             android:exported="false" />
@@ -34,6 +49,8 @@
         <activity
             android:name=".exhomeactivity"
             android:exported="false" />
+        <activity android:name=".Homeactivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -47,6 +64,14 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <receiver
+            android:name=".Receiver"
+            android:enabled="true"
+            android:exported="false"/>
+        <service
+            android:name=".MyIntentService"
+            android:enabled="true"
+            android:exported="false"/>
     </application>
 
 </manifest>

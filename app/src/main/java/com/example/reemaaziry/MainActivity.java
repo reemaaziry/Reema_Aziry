@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences("Userinfo", 0);
 
+        Intent notification = new Intent(this, Receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, notification, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 24*60*1000, pendingIntent);
+
     }
     public void register(View view) {
         Intent i_register = new Intent(this, RegisterActivity.class);
@@ -55,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         String registeredPassword = preferences.getString("password", "");
 
         if (input_mail.equals(registeredMail)&& input_password.equals(registeredPassword)){
-            Intent i_mail = new Intent(this, Homeactivity.class);
+            Intent i_mail = new Intent(this, BottomNavigation.class);
             startActivity(i_mail);
         }
         else {
@@ -66,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(this,"Empty Email", Toast.LENGTH_LONG).show();
 //        else
 //        {
-//            Intent i = new Intent(this, homeactivity.class);
+//            Intent i = new Intent(this, HomeFragment.class);
 //            startActivity(i);
 //        }
 //        if (editTextTextPassword.getText().toString().equals(""))
 //            Toast.makeText(this,"Empty Password", Toast.LENGTH_LONG).show();
 //        else
 //        {
-//            Intent i = new Intent(this, homeactivity.class);
+//            Intent i = new Intent(this, HomeFragment.class);
 //            startActivity(i);
 //        }
     }
@@ -88,8 +97,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.setting_menu:{
-                Toast.makeText(MainActivity.this,"settings clicked",Toast.LENGTH_LONG).show();
+            case R.id.camera_menu:{
+                Toast.makeText(MainActivity.this,"Camera clicked",Toast.LENGTH_LONG).show();
+                Intent c = new Intent(this, CameraActivity.class);
+                startActivity(c);
                 break;}
             case R.id.about_menu:{
                 Toast.makeText(MainActivity.this,"about clicked",Toast.LENGTH_LONG).show();
@@ -132,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
     }
+
+
 
 
 }

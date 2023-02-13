@@ -62,8 +62,10 @@ public class Listactivity extends AppCompatActivity {
         @Override
         public boolean onOptionsItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()){
-                case R.id.setting_menu:
-                    Toast.makeText(Listactivity.this,"settings clicked",Toast.LENGTH_LONG).show();
+                case R.id.camera_menu:
+                    Toast.makeText(Listactivity.this,"camera clicked",Toast.LENGTH_LONG).show();
+                    Intent c = new Intent(this, CameraActivity.class);
+                    startActivity(c);
                     break;
                 case R.id.about_menu:
                     Toast.makeText(Listactivity.this,"about clicked",Toast.LENGTH_LONG).show();

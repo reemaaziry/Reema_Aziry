@@ -2,7 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/setting" android:id="@+id/setting_menu"/>
+    <item android:title="camera" android:id="@+id/camera_menu"/>
     <item android:title="about" android:id="@+id/about_menu"/>
     <item android:title="help" android:id="@+id/help_menu"/>
     <item android:title="log out" android:id="@+id/logout_menu"/>
