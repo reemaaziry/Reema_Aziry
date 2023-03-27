@@ -32,9 +32,6 @@
             android:name=".BottomNavigation"
             android:exported="false" />
         <activity
-            android:name=".loginActivity"
-            android:exported="false" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
