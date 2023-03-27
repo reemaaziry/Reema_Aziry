@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
     private EditText editTextTextEmailAddress, editTextTextPassword;
     private Button  btnRegister ,btnCancel;
@@ -26,11 +32,15 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvSignup, tvWelcome;
 
     SharedPreferences preferences;
+    //Object for interacting with the firabase
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //connect to the firebase of the project
+        mAuth = FirebaseAuth.getInstance();
 
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextTextPassword = findViewById(R.id.editTextTextPassword);
@@ -48,8 +58,34 @@ public class MainActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 24*60*1000, pendingIntent);
-
     }
+    //implement sign in method with login of behaviour
+    public void signIn(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            // you can do intent and move to next page
+                            Log.w("FIREBASE", "createUserWithEmail:success");
+
+                            Intent i_mail = new Intent(MainActivity.this, BottomNavigation.class);
+                            startActivity(i_mail);
+
+                        } else {
+
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            Log.w("FIREBASE", "createUserWithEmail:failure", task.getException());
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
     public void register(View view) {
         Intent i_register = new Intent(this, RegisterActivity.class);
         startActivity(i_register);
@@ -62,14 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
         String registeredMail = preferences.getString("username", "");
         String registeredPassword = preferences.getString("password", "");
-
-        if (input_mail.equals(registeredMail)&& input_password.equals(registeredPassword)){
-            Intent i_mail = new Intent(this, BottomNavigation.class);
-            startActivity(i_mail);
-        }
-        else {
-            Toast.makeText(this, "Incorrect credentials!", Toast.LENGTH_SHORT).show();
-        }
+        //
+        signIn(input_mail, input_password);
 
 //        if(editTextTextEmailAddress.getText().toString().equals(""))
 //            Toast.makeText(this,"Empty Email", Toast.LENGTH_LONG).show();
