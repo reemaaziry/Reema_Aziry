@@ -4,25 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Aboutactivity">
+    tools:context=".Aboutactivity"
+    android:background="@drawable/img_7">
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="410dp"
-        android:layout_height="34dp"
-        android:text="About:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
-
-    <TextView
-        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Interests is an app "
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="212dp" />
+        android:fontFamily="serif"
+        android:text="About The App "
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="308dp"
+        android:layout_height="520dp"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="8dp"
+        android:text="Breaking News allows users to create an account and post news stories about various subjects. Users can also browse and search for news stories that have been posted by other users.
+With a sleek and intuitive user interface, it's easy to navigate through the app and stay up-to-date with the latest happenings.
+Our app also provides a personalized experience, with the ability to customize news feeds based on users' interests and preferences. This means that you'll only see the news that matters most to you, cutting out the noise and clutter that often comes with traditional news sources.
+So whether you're a news junkie or just want to stay informed about the world around you, Breaking News has got you covered. "
+        android:textColor="@color/black"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

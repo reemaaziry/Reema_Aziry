@@ -142,9 +142,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent h = new Intent(this, helpactivity.class);
                 startActivity(h);
                 break;}
-            case R.id.logout_menu:{
-                Toast.makeText(MainActivity.this,"logout clicked",Toast.LENGTH_LONG).show();
-                break;}
             case R.id.list_menu:{
                 Toast.makeText(MainActivity.this,"list clicked",Toast.LENGTH_LONG).show();
                 Intent m = new Intent(this, Listactivity.class);

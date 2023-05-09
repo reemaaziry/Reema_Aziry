@@ -106,16 +106,16 @@ public class HomeFragment extends Fragment {
 
         imageResourceID = new int[]{
 
-                R.drawable.img,
-                R.drawable.img_1,
-                R.drawable.img_2,
+                R.drawable.img_9,
+                R.drawable.img_10,
+                R.drawable.img_11,
                 R.drawable.img_3,
                 R.drawable.img_4,
                 R.drawable.img_5,
+                R.drawable.img_1,
+                R.drawable.img_2,
                 R.drawable.img,
-                R.drawable.a,
-                R.drawable.img,
-                R.drawable.a,
+                R.drawable.img_12,
 
 
         };

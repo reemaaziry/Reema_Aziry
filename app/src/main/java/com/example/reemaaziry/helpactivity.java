@@ -37,8 +37,6 @@ public class helpactivity extends AppCompatActivity {
             startActivity(a);}
         if(item.getItemId()==R.id.help_menu)
             Toast.makeText(helpactivity.this,"help clicked",Toast.LENGTH_LONG).show();
-        if(item.getItemId()==R.id.logout_menu)
-            Toast.makeText(helpactivity.this,"logout clicked",Toast.LENGTH_LONG).show();
         if(item.getItemId()==R.id.list_menu)
             Toast.makeText(helpactivity.this,"list clicked",Toast.LENGTH_LONG).show();
             Intent m = new Intent(this, Listactivity.class);

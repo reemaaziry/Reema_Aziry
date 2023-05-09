@@ -5,7 +5,6 @@
     <item android:title="camera" android:id="@+id/camera_menu"/>
     <item android:title="about" android:id="@+id/about_menu"/>
     <item android:title="help" android:id="@+id/help_menu"/>
-    <item android:title="log out" android:id="@+id/logout_menu"/>
     <item android:title="list" android:id="@+id/list_menu"/>
 
 </menu>
